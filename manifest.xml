@@ -33,13 +33,13 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://PLACEHOLDER.vercel.app/src/index.html" />
+        <SourceLocation DefaultValue="https://PLACEHOLDER.vercel.app/public/index.html" />
         <RequestedHeight>450</RequestedHeight>
       </DesktopSettings>
     </Form>
     <Form xsi:type="ItemEdit">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://PLACEHOLDER.vercel.app/src/index.html" />
+        <SourceLocation DefaultValue="https://PLACEHOLDER.vercel.app/public/index.html" />
         <RequestedHeight>450</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -118,8 +118,8 @@
         <bt:Image id="Icon.80x80" DefaultValue="https://PLACEHOLDER.vercel.app/assets/icon-80.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="https://PLACEHOLDER.vercel.app/src/commands.html" />
-        <bt:Url id="Taskpane.Url" DefaultValue="https://PLACEHOLDER.vercel.app/src/index.html" />
+        <bt:Url id="Commands.Url" DefaultValue="https://PLACEHOLDER.vercel.app/public/commands.html" />
+        <bt:Url id="Taskpane.Url" DefaultValue="https://PLACEHOLDER.vercel.app/public/index.html" />
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="Kimi AI" />
