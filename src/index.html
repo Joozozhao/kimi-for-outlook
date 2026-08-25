@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kimi for Outlook</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 设置面板 -->
+    <div id="settings-panel" class="panel hidden">
+      <h3>⚙️ API 设置</h3>
+      <p class="hint">请输入你的 Kimi API Key（从 <a href="https://platform.moonshot.cn" target="_blank">platform.moonshot.cn</a> 获取）</p>
+      <input type="password" id="api-key-input" placeholder="sk-...">
+      <div class="button-row">
+        <button id="save-key-btn" class="btn-primary">保存</button>
+        <button id="cancel-settings-btn" class="btn-secondary">取消</button>
+      </div>
+      <p class="hint small">API Key 仅存储在本地浏览器中，不会上传到任何服务器。</p>
+    </div>
+
+    <!-- 主面板 -->
+    <div id="main-panel" class="panel">
+      <header>
+        <h1>🌙 Kimi for Outlook</h1>
+        <button id="settings-btn" class="icon-btn" title="设置">⚙️</button>
+      </header>
+
+      <div id="email-info" class="card">
+        <p id="email-subject">加载中...</p>
+        <p id="email-sender" class="muted"></p>
+      </div>
+
+      <nav class="tab-bar">
+        <button class="tab-btn active" data-tab="triage">📥 分类</button>
+        <button class="tab-btn" data-tab="reply">✍️ 起草回复</button>
+        <button class="tab-btn" data-tab="meeting">📅 安排会议</button>
+        <button class="tab-btn" data-tab="tone">🎭 调整语气</button>
+      </nav>
+
+      <div class="tab-content">
+        <!-- 分类 -->
+        <div id="tab-triage" class="tab-pane active">
+          <button id="btn-triage" class="btn-primary full">分析邮件优先级</button>
+          <div id="result-triage" class="result-box"></div>
+        </div>
+
+        <!-- 起草回复 -->
+        <div id="tab-reply" class="tab-pane">
+          <div class="input-group">
+            <label>回复意图</label>
+            <textarea id="reply-intent" rows="2" placeholder="我想接受这个提议，但希望延期一周..."></textarea>
+          </div>
+          <div class="input-group">
+            <label>语气风格</label>
+            <select id="reply-tone">
+              <option value="formal">正式商务</option>
+              <option value="friendly" selected>友好亲和</option>
+              <option value="concise">简洁直接</option>
+              <option value="warm">热情感谢</option>
+            </select>
+          </div>
+          <button id="btn-reply" class="btn-primary full">生成回复</button>
+          <div id="result-reply" class="result-box"></div>
+          <button id="btn-insert-reply" class="btn-secondary full hidden">插入到邮件正文</button>
+        </div>
+
+        <!-- 安排会议 -->
+        <div id="tab-meeting" class="tab-pane">
+          <div class="input-group">
+            <label>会议时长（分钟）</label>
+            <input type="number" id="meeting-duration" value="30" min="15" step="15">
+          </div>
+          <div class="input-group">
+            <label>偏好时间段</label>
+            <input type="text" id="meeting-time" placeholder="下周二到周四的下午">
+          </div>
+          <button id="btn-meeting" class="btn-primary full">生成会议安排</button>
+          <div id="result-meeting" class="result-box"></div>
+        </div>
+
+        <!-- 调整语气 -->
+        <div id="tab-tone" class="tab-pane">
+          <div class="input-group">
+            <label>目标语气</label>
+            <select id="target-tone">
+              <option value="formal">正式商务（对外/上级/客户）</option>
+              <option value="friendly">友好亲和（同事/合作伙伴）</option>
+              <option value="concise">简洁直接（内部快速沟通）</option>
+              <option value="diplomatic">委婉礼貌（拒绝/延期/异议）</option>
+              <option value="urgent">紧急催促（需要立即响应）</option>
+            </select>
+          </div>
+          <button id="btn-tone" class="btn-primary full">调整语气</button>
+          <div id="result-tone" class="result-box"></div>
+          <button id="btn-insert-tone" class="btn-secondary full hidden">插入到邮件正文</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 加载状态 -->
+    <div id="loading" class="loading-overlay hidden">
+      <div class="spinner"></div>
+      <p>Kimi 思考中...</p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

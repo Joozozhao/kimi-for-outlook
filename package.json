@@ -1,0 +1,11 @@
+{
+  "name": "kimi-for-outlook",
+  "version": "1.0.0",
+  "description": "Kimi AI 邮件助手 - Outlook Web Add-in",
+  "scripts": {
+    "start": "npx serve src",
+    "build": "echo 'Static files in src/'"
+  },
+  "keywords": ["outlook", "add-in", "ai", "kimi", "email"],
+  "license": "MIT"
+}
